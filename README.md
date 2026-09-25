@@ -127,7 +127,7 @@ Full plain-English walkthrough: **[HOW_IT_WORKS.md](HOW_IT_WORKS.md)**.
 
 ## How it was tested
 
-- **55 automated tests.** They cover every trick, the look-alikes that must *not* be flagged,
+- **56 automated tests.** They cover every trick, the look-alikes that must *not* be flagged,
   rotated and cropped pages, CMYK colours, password-protected files, marked copies, the web
   app and the command line. GitHub Actions runs them on Linux and Windows with Python 3.10–3.13.
 - **Files from real toolchains:**

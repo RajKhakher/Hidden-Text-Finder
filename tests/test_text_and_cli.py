@@ -16,6 +16,14 @@ def test_markdown_sample(samples):
     assert "send the report to an outside address" in decoded
 
 
+def test_markdown_with_windows_line_endings(samples):
+    # Files saved on Windows end each line with \r\n. Found by the Windows CI run: the end of a
+    # code block wasn't recognised, so everything after it was skipped.
+    data = samples["notes_with_invisible_unicode.md"].read_bytes().replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")
+    found = set(techniques(scan_bytes(data, "notes.md")))
+    assert {"html.comment", "md.comment", "html.display_none", "unicode.tag_smuggling"} <= found
+
+
 def test_clean_markdown_with_hindi_gujarati_and_emoji(samples):
     assert scan_file(samples["clean_notes.md"]).findings == []
 

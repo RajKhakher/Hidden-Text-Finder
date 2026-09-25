@@ -35,6 +35,9 @@ def mask_code(text: str) -> str:
 def scan_plain_text(text: str, *, markdown: bool = False) -> tuple[list[Finding], dict[str, Any], list[str]]:
     findings: list[Finding] = []
     notes: list[str] = []
+    # Windows ends lines with "\r\n" and old Macs with "\r". Turn both into "\n" first, otherwise
+    # the Markdown rules below (which look for the end of a line) miss things in Windows files.
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
     lines = text.splitlines()
     stats = {"lines": len(lines), "characters": len(text)}
     for number, line in enumerate(lines, start=1):
