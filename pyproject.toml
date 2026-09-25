@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hidden-text-finder"
+version = "0.1.0"
+description = "Find text that people can't see but AI tools still read, in PDFs, Word files, web pages and Markdown."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "AGPL-3.0-or-later"
+authors = [{ name = "Raj Khakher" }]
+keywords = ["prompt-injection", "digital-forensics", "pdf", "docx", "llm-security", "hidden-text"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Security",
+    "Topic :: Text Processing",
+    "Environment :: Console",
+]
+dependencies = [
+    "pymupdf>=1.24",
+    "numpy>=1.24",
+    "lxml>=4.9",
+    "beautifulsoup4>=4.12",
+    "tinycss2>=1.2",
+    "rich>=13",
+]
+
+[project.optional-dependencies]
+web = ["streamlit>=1.50"]
+dev = ["pytest>=7", "python-docx>=1.1"]
+
+[project.scripts]
+hidden-text-finder = "hidden_text_finder.cli:main"
+htf = "hidden_text_finder.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/RajKhakher/hidden-text-finder"
+Issues = "https://github.com/RajKhakher/hidden-text-finder/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

@@ -1,0 +1,12 @@
+# Core (command-line tool and library)
+pymupdf>=1.24
+numpy>=1.24
+lxml>=4.9
+beautifulsoup4>=4.12
+tinycss2>=1.2
+rich>=13
+# Web app (streamlit run app.py)
+streamlit>=1.50
+# Tests
+pytest>=7
+python-docx>=1.1

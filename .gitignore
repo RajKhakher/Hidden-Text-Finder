@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+.streamlit/secrets.toml
+# outputs you create while trying the tool
+*.marked.pdf
+*.revealed.docx
+report*.html
+report*.json
+marked/
